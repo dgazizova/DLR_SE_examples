@@ -14,9 +14,9 @@ def get_SE(path_to_kernel, path_to_constants):
     SE = np.zeros(len(nu), dtype=complex)
 
     for i, iw_ in enumerate(nu):
-        I = df1[df1['nu'] == iw_]['Re_K'].to_numpy() + 1j * df1[df1['nu'] == iw_]['Im_K'].to_numpy()
-        A = df2['Re_C'].to_numpy() + 1j * df2['Im_C'].to_numpy()
-        SE[i] = np.sum(I * A)
+        K = df1[df1['nu'] == iw_]['Re_K'].to_numpy() + 1j * df1[df1['nu'] == iw_]['Im_K'].to_numpy()
+        C = df2['Re_C'].to_numpy() + 1j * df2['Im_C'].to_numpy()
+        SE[i] = np.sum(K * C)
     return SE
 
 
